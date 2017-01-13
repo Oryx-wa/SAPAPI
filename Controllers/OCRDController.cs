@@ -25,11 +25,23 @@ namespace SAPAPI.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetForLookUp(string CardCode)
+        public JsonResult GetForLookUp()
         {
             using (var context = new SAPAPIContext())
             {
-                var ocrds = context.BusinessPatners.SqlQuery(string.Format("SELECT * FROM OCRD where CardCode = '{0}' ", CardCode)).ToList();
+                var ocrds = context.BusinessPatners.SqlQuery("SELECT CardCode,CardName FROM OCRD where ").ToList();
+
+                var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+                return Json(ocrds, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetForLookUp(string searchString)
+        {
+            using (var context = new SAPAPIContext())
+            {
+                var ocrds = context.BusinessPatners.SqlQuery(string.Format("SELECT CardCode,CardName FROM OCRD where CardCode = '{0}' or CardName = '{0}' or CardType = '{0}'", searchString)).ToList();
 
                 var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
                 return Json(ocrds, JsonRequestBehavior.AllowGet);
