@@ -45,6 +45,14 @@
       <HintPath>..\SAPWEBAPIServices\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>packages\Autofac.WebApi2.4.0.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\SAPWEBAPIServices\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -137,8 +145,10 @@
     <Compile Include="App_Start\JsonContentNegotiator.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="b1.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Error.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\PurchaseOrderController.cs" />
     <Compile Include="Controllers\PurchaseRequestController.cs" />
     <Compile Include="Controllers\GRNController.cs" />
@@ -151,6 +161,7 @@
     <Compile Include="ViewModels\BusinessPatner.cs" />
     <Compile Include="ViewModels\GRN.cs" />
     <Compile Include="ViewModels\IGN1.cs" />
+    <Compile Include="ViewModels\Items.cs" />
     <Compile Include="ViewModels\OCRD.cs" />
     <Compile Include="ViewModels\OIGN.cs" />
     <Compile Include="ViewModels\OPOR.cs" />

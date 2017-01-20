@@ -7,12 +7,16 @@ using System.Web.Mvc;
 using SupplyChain.Models;
 using System;
 using System.Collections.Generic;
+using Autofac.Integration.WebApi;
 
 namespace SAPAPI.Controllers
 {
+    [AutofacControllerConfiguration]
     [Route("api/[controller]")]
     public class OCRDController : BaseController
     {
+        
+
         public override JsonResult  Get()
         {
             using (var context = new SAPAPIContext())
@@ -29,7 +33,7 @@ namespace SAPAPI.Controllers
         {
             using (var context = new SAPAPIContext())
             {
-                var ocrds = context.BusinessPatners.SqlQuery("SELECT CardCode,CardName FROM OCRD where ").ToList();
+                var ocrds = context.BPLoookups.SqlQuery("SELECT CardCode,CardName, CardType FROM OCRD  ").ToList();
 
                 var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
                 return Json(ocrds, JsonRequestBehavior.AllowGet);
@@ -46,6 +50,13 @@ namespace SAPAPI.Controllers
                 var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
                 return Json(ocrds, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public JsonResult AddBP( BusinessPatner bp)
+        {
+            var cmpName = b1.B1Company.CompanyName;
+            return Json("testing completer", JsonRequestBehavior.AllowGet);
         }
 
     }

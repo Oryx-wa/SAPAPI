@@ -20,8 +20,10 @@ namespace SAPAPI.Models
         {
         }
         public DbSet<BusinessPatner> BusinessPatners { get; set; }
+        public DbSet<BPLookup> BPLoookups { get; set; }
         public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public DbSet<GRN> GRNs { get; set; }
         public DbSet<PurchaseRequest> PurchaseRequests { get; set; }
+        public DbSet<Items> Items { get; set; }
     }
 }

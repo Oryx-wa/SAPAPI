@@ -14,6 +14,8 @@ namespace SAPAPI.Controllers
     [Route("api/[controller]")]
     public class GRNController : BaseController
     {
+
+        
         //[HttpPost ValidateModelState]
         [Route("Get")]
         public override JsonResult  Get()
@@ -73,9 +75,10 @@ namespace SAPAPI.Controllers
 
         [HttpPost]
         [Route("Edit")]
-        public void Edit(int id, [System.Web.Http.FromBody]GRN prModel)
+        public JsonResult Edit()
         {
-            Connect();
+            var cmpName = b1.B1Company.CompanyName;
+            return Json(cmpName, JsonRequestBehavior.AllowGet);
 
         }
 

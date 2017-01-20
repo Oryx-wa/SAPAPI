@@ -30,7 +30,7 @@ namespace SAPAPI
 
             var jsonFormatter = new JsonMediaTypeFormatter();
             //optional: set serializer settings here
-            config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
+            //config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
         }
     }
 }
